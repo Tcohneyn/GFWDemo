@@ -12,18 +12,45 @@ namespace QFramework.GFW
 	}
 	public partial class LoginPanel : UIPanel
 	{
+		// 缓存 Model 引用
+		private IGFWDemoModel mModel;
+		private ResLoader mResLoader = ResLoader.Allocate();
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as LoginPanelData ?? new LoginPanelData();
-			// please add init code here
+			// 核心：获取 Model 引用
+			mModel = GFWDemo.Interface.GetModel<IGFWDemoModel>();
 			btnImage.raycastTarget = false;
 			mData.blinkSequence = DOTween.Sequence();
 			StartBreathingEffect(mData.blinkSequence);
+			inside.Hide();
 			LoginButton.onClick.AddListener(() =>
 			{
-				FadeOutAndHideButton();
-				//LoginButton.Hide();
+				// 立即禁用按钮，防止动画期间重复点击
+				LoginButton.interactable = false;
+				FadeOutAndHide(LoginButton.gameObject);
+				FadeInAndShow(inside.gameObject);
 			});
+			SelectButton.onClick.AddListener(() =>
+			{
+				UIKit.OpenPanel("ServerPanel", UILevel.PopUI);
+			});
+			StartGame.onClick.AddListener(() =>
+			{
+				DOTween.KillAll();
+				// 异步加载
+				mResLoader.LoadSceneAsync("Game");
+			} );
+			// 监听当前选中的服务器改变
+			mModel.CurrentSelectedServer.RegisterWithInitValue(serverInfo =>
+			{
+				if (serverInfo != null)
+				{
+					// 更新当前大区显示文本
+					CurrentServerText.text = serverInfo.Type.GetDescription()+"——"+serverInfo.id;
+                
+				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -69,25 +96,58 @@ namespace QFramework.GFW
 			seq.SetEase(Ease.InOutSine);
 		}
 		
-		private void FadeOutAndHideButton()
+		private void FadeOutAndHide(GameObject targetObject)
 		{
 			// 1. 获取或添加 CanvasGroup
-			CanvasGroup canvasGroup = LoginButton.GetComponent<CanvasGroup>();
+			CanvasGroup canvasGroup = targetObject.GetComponent<CanvasGroup>();
 			if (canvasGroup == null) {
-				canvasGroup = LoginButton.gameObject.AddComponent<CanvasGroup>();
+				canvasGroup = targetObject.gameObject.AddComponent<CanvasGroup>();
+			}
+
+
+
+			// 2. 执行渐隐动画，并在完成后隐藏
+			canvasGroup.DOFade(0, mData.fadeDuration)           // 透明度从当前值渐变到0
+				.SetEase(Ease.OutQuad)            // 使用“缓出”曲线，结束时更平滑
+				.OnComplete(() => {               // 动画完成后的回调
+					targetObject.gameObject.SetActive(false); // 真正隐藏
+					// loginButton.gameObject.SetActive(false); // 或者您可以选择销毁
+					// Destroy(loginButton.gameObject);
+				});
+		}
+
+		private void FadeInAndShow(GameObject targetObject)
+		{
+			// 1. 获取或添加 CanvasGroup
+			CanvasGroup canvasGroup = targetObject.GetComponent<CanvasGroup>();
+			if (canvasGroup == null) {
+				canvasGroup = targetObject.gameObject.AddComponent<CanvasGroup>();
 			}
 
 			// 2. 立即禁用按钮，防止动画期间重复点击
 			LoginButton.interactable = false;
 
 			// 3. 执行渐隐动画，并在完成后隐藏
-			canvasGroup.DOFade(0, mData.fadeDuration)           // 透明度从当前值渐变到0
+			canvasGroup.DOFade(1, mData.fadeDuration)           // 透明度从当前值渐变到0
 				.SetEase(Ease.OutQuad)            // 使用“缓出”曲线，结束时更平滑
 				.OnComplete(() => {               // 动画完成后的回调
-					LoginButton.gameObject.SetActive(false); // 真正隐藏
+					targetObject.gameObject.SetActive(true); // 真正隐藏
 					// loginButton.gameObject.SetActive(false); // 或者您可以选择销毁
 					// Destroy(loginButton.gameObject);
 				});
+		}
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+			// // 1. 彻底杀掉所有动画，防止跳转场景报错
+			// transform.DOKill();
+			// mData.blinkSequence.Kill();
+			// 2. 回收资源
+			if (mResLoader != null)
+			{
+				mResLoader.Recycle2Cache();
+				mResLoader = null;
+			}
 		}
 	}
 }

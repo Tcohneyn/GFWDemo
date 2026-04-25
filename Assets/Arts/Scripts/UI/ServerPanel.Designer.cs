@@ -5,22 +5,40 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-	// Generate Id:20c2059d-dc5e-49ff-bf97-39b1fc26ee7c
+	// Generate Id:d0cf831f-80dd-4ecc-8733-06f0f8e69c24
 	public partial class ServerPanel
 	{
 		public const string Name = "ServerPanel";
 		
 		[SerializeField]
-		public UnityEngine.UI.Button ServerButton;
+		public UnityEngine.UI.Button ServerClose;
+		[SerializeField]
+		public UnityEngine.UI.ScrollRect ServerScrollLeft;
+		[SerializeField]
+		public UnityEngine.UI.Button ServerButton2;
 		[SerializeField]
 		public TMPro.TextMeshProUGUI SerbtnText;
+		[SerializeField]
+		public UnityEngine.RectTransform SubListContainer;
+		[SerializeField]
+		public UnityEngine.UI.Button RecommendBtn;
+		[SerializeField]
+		public UnityEngine.UI.Button AllServerBtn;
+		[SerializeField]
+		public UnityEngine.UI.ScrollRect ServerScrollRight;
 		
 		private ServerPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
-			ServerButton = null;
+			ServerClose = null;
+			ServerScrollLeft = null;
+			ServerButton2 = null;
 			SerbtnText = null;
+			SubListContainer = null;
+			RecommendBtn = null;
+			AllServerBtn = null;
+			ServerScrollRight = null;
 			
 			mData = null;
 		}

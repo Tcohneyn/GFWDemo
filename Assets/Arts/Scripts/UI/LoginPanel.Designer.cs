@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-	// Generate Id:6f7574ab-8f68-4dd3-adfe-899ba1395d34
+	// Generate Id:2a822888-dd47-4429-b6db-5a8afbe15972
 	public partial class LoginPanel
 	{
 		public const string Name = "LoginPanel";
@@ -14,6 +14,14 @@ namespace QFramework.GFW
 		public UnityEngine.UI.Button LoginButton;
 		[SerializeField]
 		public UnityEngine.UI.Image btnImage;
+		[SerializeField]
+		public RectTransform inside;
+		[SerializeField]
+		public TMPro.TextMeshProUGUI CurrentServerText;
+		[SerializeField]
+		public UnityEngine.UI.Button SelectButton;
+		[SerializeField]
+		public UnityEngine.UI.Button StartGame;
 		
 		private LoginPanelData mPrivateData = null;
 		
@@ -21,6 +29,10 @@ namespace QFramework.GFW
 		{
 			LoginButton = null;
 			btnImage = null;
+			inside = null;
+			CurrentServerText = null;
+			SelectButton = null;
+			StartGame = null;
 			
 			mData = null;
 		}
