@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-	// Generate Id:2a822888-dd47-4429-b6db-5a8afbe15972
+	// Generate Id:c509e065-451a-4494-8f10-3f5bf57f618a
 	public partial class LoginPanel
 	{
 		public const string Name = "LoginPanel";

@@ -62,3 +62,4 @@ public enum LeftTabType
     Recommend,     // 推荐服务器
     All            // 所有服务器（也就是那个可以折叠的）
 }
+

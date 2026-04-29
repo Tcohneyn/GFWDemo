@@ -39,7 +39,7 @@ namespace QFramework.GFW
 			{
 				DOTween.KillAll();
 				// 异步加载
-				mResLoader.LoadSceneAsync("Game");
+				GFWDemo.Interface.SendCommand(new LoadSceneCommand("Game"));
 			} );
 			// 监听当前选中的服务器改变
 			mModel.CurrentSelectedServer.RegisterWithInitValue(serverInfo =>

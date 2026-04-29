@@ -5,16 +5,22 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-	// Generate Id:fa6dad43-2efb-44b5-8498-b41788e8eac1
+	// Generate Id:608c6621-fc94-41e9-b820-82747cabf1e8
 	public partial class MainPanel
 	{
 		public const string Name = "MainPanel";
 		
+		[SerializeField]
+		public RectTransform MainUI;
+		[SerializeField]
+		public UnityEngine.UI.Button btnfolder;
 		
 		private MainPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
+			MainUI = null;
+			btnfolder = null;
 			
 			mData = null;
 		}
