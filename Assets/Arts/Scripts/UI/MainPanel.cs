@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
@@ -19,6 +20,11 @@ namespace QFramework.GFW
             mData = uiData as MainPanelData ?? new MainPanelData();
             // please add init code here
             bfolder =false;
+            playerinfo.onClick.AddListener(() =>
+            {
+                UIKit.Stack.Push(this);
+                var playerInfoPanel = UIKit.OpenPanel<PlayerInfoPanel>();
+            } );
             btnfolder.onClick.AddListener(() =>
             {
                 Image imgfolder = btnfolder.transform.Find("imgfolder").GetComponent<Image>();
@@ -61,6 +67,7 @@ namespace QFramework.GFW
 
         protected override void OnClose()
         {
+            DOTween.KillAll();
         }
     }
 }
