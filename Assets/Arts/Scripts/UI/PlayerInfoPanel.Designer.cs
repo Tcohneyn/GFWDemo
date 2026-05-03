@@ -5,11 +5,17 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-	// Generate Id:149bc342-221f-4adb-9432-b418ccd0c8ac
+	// Generate Id:e14e5543-31b2-47d0-b62d-d7093a20f163
 	public partial class PlayerInfoPanel
 	{
 		public const string Name = "PlayerInfoPanel";
 		
+		[SerializeField]
+		public TMPro.TextMeshProUGUI textTopleft;
+		[SerializeField]
+		public TMPro.TextMeshProUGUI textBottomleft;
+		[SerializeField]
+		public RectTransform playInfoContainer;
 		[SerializeField]
 		public UnityEngine.UI.Button btnback;
 		
@@ -17,6 +23,9 @@ namespace QFramework.GFW
 		
 		protected override void ClearUIComponents()
 		{
+			textTopleft = null;
+			textBottomleft = null;
+			playInfoContainer = null;
 			btnback = null;
 			
 			mData = null;

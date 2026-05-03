@@ -19,6 +19,8 @@ public interface IGFWDemoModel : IModel
     BindableProperty<LeftTabType> CurrentTab { get; }
     
     BindableProperty<bool> bShow { get; }
+    
+    BindableProperty<Language> mCurrentLanguage { get; }
 }
 public class GFWDemoModel : AbstractModel,IGFWDemoModel
 {
@@ -29,6 +31,8 @@ public class GFWDemoModel : AbstractModel,IGFWDemoModel
     
     public BindableProperty<LeftTabType> CurrentTab { get; } = new BindableProperty<LeftTabType>(LeftTabType.Recommend);
     public BindableProperty<bool> bShow { get; } = new BindableProperty<bool>(false);
+    
+    public BindableProperty<Language> mCurrentLanguage { get; }= new BindableProperty<Language>(Language.ChineseSimplified);
 
     protected override void OnInit()
     {
@@ -41,5 +45,11 @@ public class GFWDemoModel : AbstractModel,IGFWDemoModel
         {
             CurrentSelectedServer.Value = serverData.Value[0];
         }
+        // 语言唯一基准：本 Model。LocaleKit 仅同步用于内置本地化组件（LocaleTMP 等）。
+        mCurrentLanguage.RegisterWithInitValue(lang =>
+        {
+            LocaleKit.ChangeLanguage(lang);
+            UILayoutRefresh.RefreshAll();
+        });
     }
 }

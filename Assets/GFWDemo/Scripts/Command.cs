@@ -6,7 +6,9 @@ using QFramework.GFW;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// 引入 Command
+/// <summary>
+/// 服务器列表是否展开
+/// </summary>
 public class RegionExpandedCommand : AbstractCommand
 {
     protected override void OnExecute()
@@ -64,6 +66,20 @@ public class bShowCommand : AbstractCommand
     }
 }
 
+public class ChangeLanguageCommand : AbstractCommand
+{
+    private Language currentLanguage;
+
+    public ChangeLanguageCommand(Language language)
+    {
+        currentLanguage = language;
+    }
+    protected override void OnExecute()
+    {
+        var model = this.GetModel<IGFWDemoModel>();
+        model.mCurrentLanguage.Value = currentLanguage;
+    }
+}
 public class LoadSceneCommand : AbstractCommand
 {
     private readonly string mSceneName;

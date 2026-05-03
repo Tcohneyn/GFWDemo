@@ -557,6 +557,8 @@ GameObject:
   - component: {fileID: 5434781548449691973}
   - component: {fileID: 5612663487984540369}
   - component: {fileID: 3391535414952528139}
+  - component: {fileID: 4159590461102984542}
+  - component: {fileID: 6670725685230256423}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -580,7 +582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.8, y: 0}
   m_SizeDelta: {x: 83, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5612663487984540369
@@ -621,6 +623,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4159590461102984542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340115583109246918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites: []
+--- !u!114 &6670725685230256423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340115583109246918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: b6a32f2d9446c854192b525c44a51ced, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 84976d2959be7d14d981e3f2969216bb, type: 3}
 --- !u!1 &346601619009478566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1306,7 @@ GameObject:
   - component: {fileID: 6351125877367927135}
   - component: {fileID: 1259008619723435566}
   - component: {fileID: 1043090259618464009}
+  - component: {fileID: 3433227971526813124}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1295,7 +1330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -7.799988}
+  m_AnchoredPosition: {x: 0, y: -8.7}
   m_SizeDelta: {x: 89, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1259008619723435566
@@ -1336,6 +1371,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3433227971526813124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341784223427010068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: ad46563589e3ba341868d0b6377574d7, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 15bfb420252771544a77206353142b34, type: 3}
 --- !u!1 &1988740313666675466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,6 +1842,8 @@ GameObject:
   - component: {fileID: 4613525431695010073}
   - component: {fileID: 2798991454356737763}
   - component: {fileID: 1331978300868833730}
+  - component: {fileID: 7650741345814354684}
+  - component: {fileID: 2610695822943533811}
   m_Layer: 5
   m_Name: btnAttack
   m_TagString: Untagged
@@ -1897,6 +1952,42 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7650741345814354684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654135006685737206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 7eafba43358048444a42a1a848eb12aa, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: e94a7619072e45941b886c3f0d1d363d, type: 3}
+--- !u!114 &2610695822943533811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654135006685737206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 7eafba43358048444a42a1a848eb12aa, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: e94a7619072e45941b886c3f0d1d363d, type: 3}
 --- !u!1 &3512619822660640589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2771,7 @@ GameObject:
   - component: {fileID: 6523014518391946215}
   - component: {fileID: 8442935153789814840}
   - component: {fileID: 5051408973269173781}
+  - component: {fileID: 1854216869191812727}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2744,6 +2836,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1854216869191812727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4581704230037258088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 785786d7113696040877c7c10fabba1c, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 30513031d5f4606419631165657d56b7, type: 3}
 --- !u!1 &4596281604321365054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,7 +3143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00000011920929, y: 0}
+  m_AnchoredPosition: {x: -1.82, y: 2.19}
   m_SizeDelta: {x: 12, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8295282261130970540
@@ -3086,6 +3196,7 @@ GameObject:
   - component: {fileID: 796368040504535802}
   - component: {fileID: 8452355131645592524}
   - component: {fileID: 5829874768903600170}
+  - component: {fileID: 6438310861452874777}
   m_Layer: 5
   m_Name: btnGirls
   m_TagString: Untagged
@@ -3194,6 +3305,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6438310861452874777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5329607862767084074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 9a5cda605e5964a4aaebb2251b433581, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 3cb1f0f6a993f2849a32a4581d7af38c, type: 3}
 --- !u!1 &5427462111231385805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4581,6 +4710,7 @@ GameObject:
   - component: {fileID: 5818538013453007042}
   - component: {fileID: 6523023085452095135}
   - component: {fileID: 2509457483600130553}
+  - component: {fileID: 4735274940555855237}
   m_Layer: 5
   m_Name: btnSupply
   m_TagString: Untagged
@@ -4689,6 +4819,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4735274940555855237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683989897986416349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 597214c02fe9a6c40b44959a52eeec3c, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 7b8c1f71e06ca964687a456878cf5a42, type: 3}
 --- !u!1 &7830006453308042752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,6 +4923,7 @@ GameObject:
   - component: {fileID: 5166009582063261188}
   - component: {fileID: 1876827673095755251}
   - component: {fileID: 7696696700872726198}
+  - component: {fileID: 5278072522410621686}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -4839,6 +4988,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5278072522410621686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975083961545724459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 2ecca1c511b36f94e953f18a56abf6ff, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: e45543c7987ceda4fb9a3b5e4ed3e638, type: 3}
 --- !u!1 &8395979142592551474
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,6 +5311,7 @@ GameObject:
   - component: {fileID: 5314820735319292360}
   - component: {fileID: 952021351457399330}
   - component: {fileID: 5865166665359653276}
+  - component: {fileID: 6485821187568628528}
   m_Layer: 5
   m_Name: btnCafe
   m_TagString: Untagged
@@ -5252,6 +5420,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6485821187568628528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786908760030702013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 667714ca4038d9b45a70c2a436607715, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 0bf400601ca5df644b934bf7d326527e, type: 3}
 --- !u!1001 &7310800215040864013
 PrefabInstance:
   m_ObjectHideFlags: 0
