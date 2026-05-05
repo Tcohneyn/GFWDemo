@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using QFramework;
@@ -27,6 +28,12 @@ public class ServerRightItem : MonoBehaviour
     void Start()
     {
 
+    }
+
+    private void OnDestroy()
+    {
+        mResLoader.Recycle2Cache();
+        mResLoader = null;
     }
 
     public void InitInfo(GFWServerInfo info)

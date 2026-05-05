@@ -101,6 +101,9 @@ namespace QFramework.GFW
 
         protected override void OnClose()
         {
+            // 清理资源加载器
+            mResLoader.Recycle2Cache();
+            mResLoader = null;
         }
 
         /// <summary>
@@ -388,7 +391,7 @@ namespace QFramework.GFW
                 Destroy(item);
             }
             itemList.Clear();
-            foreach (var Info in mModel.serverData.Value)
+            foreach (var Info in mModel.ServerData.Value)
             {
                 if (Info.Type == type)
                 {

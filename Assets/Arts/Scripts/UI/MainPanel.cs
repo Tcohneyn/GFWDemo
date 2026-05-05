@@ -25,6 +25,11 @@ namespace QFramework.GFW
                 UIKit.Stack.Push(this);
                 var playerInfoPanel = UIKit.OpenPanel<PlayerInfoPanel>();
             } );
+            btnGirls.onClick.AddListener(() =>
+            {
+                UIKit.Stack.Push(this);
+                UIKit.OpenPanel<GirlsPanel>();
+            } );
             btnfolder.onClick.AddListener(() =>
             {
                 Image imgfolder = btnfolder.transform.Find("imgfolder").GetComponent<Image>();
@@ -68,6 +73,9 @@ namespace QFramework.GFW
         protected override void OnClose()
         {
             DOTween.KillAll();
+            // 清理资源加载器
+            mResLoader.Recycle2Cache();
+            mResLoader = null;
         }
     }
 }
