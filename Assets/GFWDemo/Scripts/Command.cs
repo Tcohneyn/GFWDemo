@@ -66,6 +66,24 @@ public class bShowCommand : AbstractCommand
     }
 }
 
+public class SelectGirlCommand : AbstractCommand
+{
+    private readonly int mSlotIndex;
+    private readonly GirlsInfo mInfo;
+
+    public SelectGirlCommand(int slotIndex, GirlsInfo info)
+    {
+        mSlotIndex = slotIndex;
+        mInfo = info;
+    }
+
+    protected override void OnExecute()
+    {
+        // 更新 Model 中的数据
+        this.GetModel<IGFWDemoModel>().SlotInfos[mSlotIndex].Value = mInfo;
+    }
+}
+
 public class ChangeLanguageCommand : AbstractCommand
 {
     private Language currentLanguage;

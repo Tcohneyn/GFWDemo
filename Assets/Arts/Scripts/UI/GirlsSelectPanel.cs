@@ -6,12 +6,13 @@ using QFramework;
 
 namespace QFramework.GFW
 {
-    public class GirlsPanelData : UIPanelData
-    {
-    }
-
-    public partial class GirlsPanel : UIPanel
-    {
+	public class GirlsSelectPanelData : UIPanelData
+	{
+        // 这个变量就是用来接住“点击的是哪个坑”的信息
+        public int TargetIndex;
+	}
+	public partial class GirlsSelectPanel : UIPanel
+	{
         private IGFWDemoModel mModel;
         private List<GameObject> itemList = new List<GameObject>();
         private ResLoader mResLoader = ResLoader.Allocate();
@@ -109,7 +110,7 @@ namespace QFramework.GFW
         {
             mPanelCanvasGroup = GetComponent<CanvasGroup>();
             mModel = GFWDemo.Interface.GetModel<IGFWDemoModel>();
-            mData = uiData as GirlsPanelData ?? new GirlsPanelData();
+            mData = uiData as GirlsSelectPanelData ?? new GirlsSelectPanelData();
             btnBack.onClick.AddListener(() =>
             {
                 this.Back();
@@ -148,7 +149,7 @@ namespace QFramework.GFW
             var view = item.GetComponent<GirlItem>();
             if (view != null)
             {
-                view.InitInfo(info,GirlsPanlType.GirlsPanel);
+                view.InitInfo(info,GirlsPanlType.GirlsSelectPanel, OnGirlSelected);
             }
 
             itemList.Add(item);
@@ -177,8 +178,7 @@ namespace QFramework.GFW
             {
                 LoadGirlsItem(info);
             }
-
-            txtnumGirls.text = itemList.Count.ToString();
+            
         }
         /// <summary>等级降序优先，同等级再按稀有度降序。</summary>
         private static int CompareGirlsForDisplayOrder(GirlsInfo a, GirlsInfo b)
@@ -191,5 +191,53 @@ namespace QFramework.GFW
 
             return b.rarity.CompareTo(a.rarity);
         }
-    }
+        // // 当玩家点击列表中的某个角色项时
+        // private void OnGirlSelected(GirlsInfo info)
+        // {
+        //     // 1. 依然是发送全局命令更新数据
+        //     // 因为主界面的 DisplaySlot 监听着 Model，所以数据一变，底层会自动更新
+        //     GFWDemo.Interface.SendCommand(new SelectGirlCommand(mData.TargetIndex, info));
+        //
+        //     // 2. 返回上一层面板 (即回到 PlayInfoPanel)
+        //     // QFramework 的 UIKit 支持 Back 逻辑
+        //     this.Back(); 
+        // }
+        private void SaveGirlsIsSelected()
+        {
+            var storage = GFWDemo.Interface.GetUtility<IStorage>();
+            storage.SaveGirlsInfo(mModel.GirlsData.Value);
+        }
+
+        private void OnGirlSelected(GirlsInfo info)
+        {
+            if (info.isSelected)
+            {
+                // 已经选中 → 取消选中，不退出面板
+                info.isSelected = false;
+
+                // 找到该角色占的 Slot 并清空
+                for (int i = 0; i < mModel.SlotInfos.Length; i++)
+                {
+                    if (mModel.SlotInfos[i].Value == info)
+                    {
+                        mModel.SlotInfos[i].Value = null;
+                        break;
+                    }
+                }
+
+                SaveGirlsIsSelected();
+                UpdateList();
+            }
+            else
+            {
+                // 未选中 → 选中并填入 Slot
+                info.isSelected = true;
+
+                GFWDemo.Interface.SendCommand(new SelectGirlCommand(mData.TargetIndex, info));
+
+                SaveGirlsIsSelected();
+                this.Back();
+            }
+        }
+	}
 }

@@ -7,6 +7,7 @@ public interface IStorage : IUtility
 {
     List<GFWServerInfo> LoadServerInfo();
     List<GirlsInfo> LoadGirlsInfo();
+    void SaveGirlsInfo(List<GirlsInfo> data);
 }
 
 public class Storage : IStorage
@@ -19,5 +20,9 @@ public class Storage : IStorage
     public List<GirlsInfo> LoadGirlsInfo()
     {
         return JsonMgr.Instance.LoadData<List<GirlsInfo>>("GrilsInfo");
+    }
+    public void SaveGirlsInfo(List<GirlsInfo> data)
+    {
+        JsonMgr.Instance.SaveData(data, "GrilsInfo");
     }
 }

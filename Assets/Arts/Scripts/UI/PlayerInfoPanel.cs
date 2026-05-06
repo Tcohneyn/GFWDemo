@@ -36,6 +36,12 @@ namespace QFramework.GFW
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
             ToggleGroupManager.OnToggleChanged += OnToggleChanged;
             lanToggleGroupManager.OnToggleChanged += OnlanToggleChanged;
+            DisplaySlot.bPush += OnPushPanel;
+        }
+
+        private void OnPushPanel(bool obj)
+        {
+            UIKit.Stack.Push(this);
         }
 
         protected override void OnOpen(IUIData uiData = null)
@@ -63,7 +69,7 @@ namespace QFramework.GFW
             // ⭐ 关键：必须在这里减掉监听，否则会导致残留
             ToggleGroupManager.OnToggleChanged -= OnToggleChanged;
             lanToggleGroupManager.OnToggleChanged -= OnlanToggleChanged;
-
+            DisplaySlot.bPush -= OnPushPanel;
             // 清理资源加载器
             mResLoader.Recycle2Cache();
             mResLoader = null;

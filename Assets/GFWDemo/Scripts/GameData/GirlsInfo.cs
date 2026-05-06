@@ -20,6 +20,8 @@ public class GirlsInfo
     public bool isLock = false;
     //图片
     public string girlImage;
+    //展示是否选定
+    public bool isSelected;
     /// <summary>
     /// 立绘在卡片内的矩形偏移（像素，相对预制体里 Image 的锚点位置）。
     /// 可在 StreamingAssets 的 GrilsInfo.json 里按角色单独配置。
@@ -57,4 +59,14 @@ public enum WeaponType
     SG,
     [Description("自动步枪")]
     AR
+}
+
+public enum GirlsPanlType
+{
+    [Description("面板")]
+    GirlsPanel,
+    [Description("选择面板")]
+    GirlsSelectPanel,
+    [Description("展示")]
+    Display
 }

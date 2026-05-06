@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 5485773592962997335}
   - component: {fileID: 7487431246656036269}
   - component: {fileID: 4531080585047324646}
+  - component: {fileID: 8405390708518742459}
   m_Layer: 5
   m_Name: btninfo
   m_TagString: Untagged
@@ -471,6 +472,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8405390708518742459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226660261164268300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 9713917fe2afd6847b14e99503d4fd4f, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 878939342c88747449b2aee9fe2c4b33, type: 3}
 --- !u!1 &258576860332349947
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +994,8 @@ GameObject:
   - component: {fileID: 7486775713158929206}
   - component: {fileID: 8631317343493608674}
   - component: {fileID: 9178142490842492545}
+  - component: {fileID: 7683116891042556875}
+  - component: {fileID: 5964342764231175554}
   m_Layer: 5
   m_Name: btnphone
   m_TagString: Untagged
@@ -1083,6 +1104,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7683116891042556875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628277444099400633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 0}
+--- !u!114 &5964342764231175554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628277444099400633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: a0c6b38fef623a84eae80fde2e091dc3, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 405d7156b951c9941b2e7e65dea6d915, type: 3}
 --- !u!1 &1014792118521731784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15217f718b9ee4408e4d63d89405378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LightButton: {fileID: 21300000, guid: bd79bbfc49aa0584fa547b259a5d8030, type: 3}
   MainUI: {fileID: 8361949938465397638}
   playerinfo: {fileID: 2858848894448515516}
   btnGirls: {fileID: 5829874768903600170}
@@ -2062,6 +2118,7 @@ GameObject:
   - component: {fileID: 8192789042846746080}
   - component: {fileID: 2484080195480656733}
   - component: {fileID: 3022711066709638056}
+  - component: {fileID: 6978519959658034537}
   m_Layer: 5
   m_Name: btnfriend
   m_TagString: Untagged
@@ -2170,6 +2227,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6978519959658034537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618807454785462123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 3150d0cf38ad630428a0c69b73d23a6e, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 3859ed7dae795f74185ac33fa696b885, type: 3}
 --- !u!1 &4147180319220525290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,6 +2332,7 @@ GameObject:
   - component: {fileID: 5215286481633123312}
   - component: {fileID: 9051509279447918902}
   - component: {fileID: 6437063359009286084}
+  - component: {fileID: 3971180503893031974}
   m_Layer: 5
   m_Name: btnwelfare
   m_TagString: Untagged
@@ -2365,6 +2441,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3971180503893031974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4216792184031670569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: e90ac4723976b654abb9a79bc2906003, type: 3}
+  - Language: 6
+    Sprite: {fileID: 21300000, guid: 2ad3cbddfc9a70f4fb4a78bd8aad8cb1, type: 3}
 --- !u!1 &4305725041003227113
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,10 +3719,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "LV.55  \u6E38\u541F\u8336"
+  m_text: "LV.55  \u54C8\u57FA\u7C73"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d68e2138d45c7eb4ebfa370080d77f98, type: 2}
-  m_sharedMaterial: {fileID: -2919688762239538673, guid: d68e2138d45c7eb4ebfa370080d77f98, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a4a6c3c51f25af429bb674ec71786a4, type: 2}
+  m_sharedMaterial: {fileID: -5089962591063134146, guid: 3a4a6c3c51f25af429bb674ec71786a4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4084,6 +4178,7 @@ GameObject:
   - component: {fileID: 162447688793561137}
   - component: {fileID: 4376093418851220980}
   - component: {fileID: 7875990029059682491}
+  - component: {fileID: 7922879850497540949}
   m_Layer: 5
   m_Name: btnAssn
   m_TagString: Untagged
@@ -4192,6 +4287,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7922879850497540949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197519181995840690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b182a834455e5e34baa3dfd3fc9f1b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SetImageOnInit: 1
+  LanguageSprites:
+  - Language: 10
+    Sprite: {fileID: 21300000, guid: 0475226ccc6a03941b8dde549de5f7a4, type: 3}
+  - Language: 40
+    Sprite: {fileID: 21300000, guid: 2bdd7842910ca8a4ab935d987e40af06, type: 3}
 --- !u!1 &6215474697834643129
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,10 @@ public interface IGFWDemoModel : IModel
     BindableProperty<bool> bShow { get; }
     
     BindableProperty<Language> mCurrentLanguage { get; }
+    
+    // 长度为 3 的数组，存储选中的角色信息
+    BindableProperty<GirlsInfo>[] SlotInfos { get; }
+    
 }
 public class GFWDemoModel : AbstractModel,IGFWDemoModel
 {
@@ -37,6 +41,13 @@ public class GFWDemoModel : AbstractModel,IGFWDemoModel
     public BindableProperty<bool> bShow { get; } = new BindableProperty<bool>(false);
     
     public BindableProperty<Language> mCurrentLanguage { get; }= new BindableProperty<Language>(Language.ChineseSimplified);
+    public BindableProperty<GirlsInfo>[] SlotInfos { get; } = new[]
+    {
+        new BindableProperty<GirlsInfo>(),
+        new BindableProperty<GirlsInfo>(),
+        new BindableProperty<GirlsInfo>()
+    };
+    
 
     protected override void OnInit()
     {
@@ -46,6 +57,21 @@ public class GFWDemoModel : AbstractModel,IGFWDemoModel
         // 设置初始值（不触发事件）
         ServerData.SetValueWithoutEvent(loadedData);
         GirlsData.SetValueWithoutEvent(GirlsloadedData);
+        
+        // 从持久化数据中恢复已选中的角色到对应 Slot
+        if (GirlsloadedData != null)
+        {
+            int slotIdx = 0;
+            foreach (var girl in GirlsloadedData)
+            {
+                if (girl.isSelected && slotIdx < SlotInfos.Length)
+                {
+                    SlotInfos[slotIdx].SetValueWithoutEvent(girl);
+                    slotIdx++;
+                }
+            }
+        }
+        
         // 可选：默认选中第一个服务器
         if (ServerData.Value != null && ServerData.Value.Count > 0)
         {

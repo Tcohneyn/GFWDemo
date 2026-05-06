@@ -11,12 +11,14 @@ namespace QFramework.GFW
 
     public partial class MainPanel : UIPanel
     {
+        public Sprite LightButton;
         private ResLoader mResLoader = ResLoader.Allocate();
         private bool bfolder;
         private Sprite lastSprite;
-
+        private IGFWDemoModel mModel;
         protected override void OnInit(IUIData uiData = null)
-        {
+        {  
+            mModel = GFWDemo.Interface.GetModel<IGFWDemoModel>();
             mData = uiData as MainPanelData ?? new MainPanelData();
             // please add init code here
             bfolder =false;
@@ -55,6 +57,7 @@ namespace QFramework.GFW
                     bfolder = false;
                 }
             });
+            ChangePressedImage();
         }
 
         protected override void OnOpen(IUIData uiData = null)
@@ -76,6 +79,16 @@ namespace QFramework.GFW
             // 清理资源加载器
             mResLoader.Recycle2Cache();
             mResLoader = null;
+        }
+
+        private void ChangePressedImage()
+        {
+            SpriteState state = btnGirls.spriteState;
+            if (mModel.mCurrentLanguage.Value == Language.English)
+            {
+                state.pressedSprite = LightButton;
+                btnGirls.spriteState = state;
+            }
         }
     }
 }
