@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using QFramework;
 using UnityEngine;
 
@@ -27,6 +28,10 @@ public interface IGFWDemoModel : IModel
     // 长度为 3 的数组，存储选中的角色信息
     BindableProperty<GirlsInfo>[] SlotInfos { get; }
     
+    BindableProperty<Resolution> CurrentResolution { get; }
+    // 用枚举代替布尔值，支持多种显示模式
+    BindableProperty<FullScreenMode> ScreenMode { get; }
+    List<Resolution> AvailableResolutions { get; }
 }
 public class GFWDemoModel : AbstractModel,IGFWDemoModel
 {
@@ -47,10 +52,47 @@ public class GFWDemoModel : AbstractModel,IGFWDemoModel
         new BindableProperty<GirlsInfo>(),
         new BindableProperty<GirlsInfo>()
     };
+
+    public BindableProperty<Resolution> CurrentResolution { get; } = new BindableProperty<Resolution>();
     
+    public BindableProperty<FullScreenMode> ScreenMode { get; } = new BindableProperty<FullScreenMode>();
+    public List<Resolution> AvailableResolutions { get; private set; }
+
 
     protected override void OnInit()
     {
+        // 获取系统支持的所有分辨率
+        //AvailableResolutions = new List<Resolution>(Screen.resolutions);
+        
+// 1. 你指定的标准分辨率档位
+        var targetSizes = new[] 
+        {
+            (1280, 720), (1366, 768), (1536, 864), (1600, 900), 
+            (1920, 1080), (2580, 1080), (2560, 1440), (3440, 1440), 
+            (3840, 2160), (5120, 2160)
+        };
+
+        // 2. 获取硬件实际支持的所有分辨率（用于过滤，防止用户选了显卡跑不动的）
+        var hardwareSupported = Screen.resolutions
+            .Select(r => (r.width, r.height))
+            .ToHashSet();
+
+        // 3. 取交集：只保留你想要的，且硬件支持的分辨率
+        AvailableResolutions = targetSizes
+            .Where(size => hardwareSupported.Contains(size))
+            .Select(size => new Resolution { width = size.Item1, height = size.Item2 })
+            .ToList();
+
+        // 4. 保底机制：如果用户的奇葩显示器连一个标准档位都不支持，至少把当前分辨率加进去
+        if (AvailableResolutions.Count == 0)
+        {
+            AvailableResolutions.Add(Screen.currentResolution);
+        }
+        
+        // 初始化当前状态
+        CurrentResolution.Value = Screen.currentResolution;
+        // 初始化时读取系统当前真实的显示模式
+        ScreenMode.Value = Screen.fullScreenMode;
         var storage = this.GetUtility<IStorage>();
         List<GFWServerInfo> loadedData = storage.LoadServerInfo();
         List<GirlsInfo> GirlsloadedData = storage.LoadGirlsInfo();

@@ -12,6 +12,7 @@ namespace QFramework.GFW
     public partial class MainPanel : UIPanel
     {
         public Sprite LightButton;
+        public GameObject l2d;
         private ResLoader mResLoader = ResLoader.Allocate();
         private bool bfolder;
         private Sprite lastSprite;
@@ -67,10 +68,12 @@ namespace QFramework.GFW
         protected override void OnShow()
         {
             GFWDemo.Interface.SendCommand(new bShowCommand(true));
+            l2d.Show();
         }
 
         protected override void OnHide()
         {
+            l2d.Hide();
         }
 
         protected override void OnClose()

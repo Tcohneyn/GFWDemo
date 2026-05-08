@@ -1676,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LightButton: {fileID: 21300000, guid: bd79bbfc49aa0584fa547b259a5d8030, type: 3}
+  l2d: {fileID: 4418596316005842498}
   MainUI: {fileID: 8361949938465397638}
   playerinfo: {fileID: 2858848894448515516}
   btnGirls: {fileID: 5829874768903600170}
@@ -2552,7 +2553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8915188823901242443
 RectTransform:
   m_ObjectHideFlags: 0

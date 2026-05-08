@@ -32,7 +32,10 @@ namespace QFramework.GFW
             mData = uiData as PlayerInfoPanelData ?? new PlayerInfoPanelData();
             // please add init code here
             btnback.onClick.AddListener(() => { this.Back(); });
-            mModel.mCurrentLanguage.RegisterWithInitValue(language => { RefreshPlayInfoLabels(); })
+            mModel.mCurrentLanguage.RegisterWithInitValue(language =>
+                {
+                    RefreshPlayInfoLabels(); 
+                })
                 .UnRegisterWhenGameObjectDestroyed(gameObject);
             ToggleGroupManager.OnToggleChanged += OnToggleChanged;
             lanToggleGroupManager.OnToggleChanged += OnlanToggleChanged;

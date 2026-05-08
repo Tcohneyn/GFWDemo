@@ -83,6 +83,7 @@ public class lanToggleGroupManager : MonoBehaviour
         {
             // 新 Toggle 被选中
             OnToggleSelected(changedToggle);
+            UILayoutRefresh.RefreshAll();
         }
         // 注意：在 ToggleGroup 中，当一个被设为 true，旧的会自动设为 false，
         // 但旧的 Toggle 的 onValueChanged(false) 也会被触发。

@@ -98,6 +98,37 @@ public class ChangeLanguageCommand : AbstractCommand
         model.mCurrentLanguage.Value = currentLanguage;
     }
 }
+//更改分辨率设置
+public class ChangeSettingsCommand : AbstractCommand
+{
+    private readonly int mWidth;
+    private readonly int mHeight;
+    private FullScreenMode mMode;
+
+    public ChangeSettingsCommand(int width, int height, FullScreenMode mode)
+    {
+        mWidth = width;
+        mHeight = height;
+        mMode = mode;
+    }
+
+    protected override void OnExecute()
+    {
+        // 1. 执行系统修改
+        Screen.SetResolution(mWidth, mHeight, mMode);
+
+        // 2. 更新 Model 数据
+        var model = this.GetModel<IGFWDemoModel>();
+        
+        // 这里的 Resolution 需要从可用列表里匹配一下
+        model.CurrentResolution.Value = model.AvailableResolutions.Find(r => r.width == mWidth && r.height == mHeight);
+        Debug.Log($"设置分辨率: {mWidth}x{mHeight} 模式: {mMode}");
+        // 3. (可选) 存盘，例如使用 PlayerPrefs 或 EasySave
+        PlayerPrefs.SetInt("Width", mWidth);
+        PlayerPrefs.SetInt("Height", mHeight);
+    }
+}
+
 public class LoadSceneCommand : AbstractCommand
 {
     private readonly string mSceneName;
